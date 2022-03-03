@@ -1,0 +1,26 @@
+{
+  "name": "real-time-chatroom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoelOgira-2020/Real-Time-Chatroom.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoelOgira-2020/Real-Time-Chatroom/issues"
+  },
+  "homepage": "https://github.com/JoelOgira-2020/Real-Time-Chatroom#readme",
+  "dependencies": {
+    "firebase": "^9.6.7",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
+  }
+}
