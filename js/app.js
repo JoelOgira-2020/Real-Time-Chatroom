@@ -4,6 +4,11 @@ import { getFirestore, collection, onSnapshot,
     query, where, orderBy, serverTimestamp,
     getDoc, updateDoc
 } from 'firebase/firestore';
+import {
+    createUserWithEmailAndPassword, getAuth, 
+    signOut, signInWithEmailAndPassword,
+    onAuthStateChanged
+} from 'firebase/auth';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDNjVvMiXm58y6mdbq4sl6vHFhpfqBIjHE",
@@ -14,6 +19,24 @@ const firebaseConfig = {
     appId: "1:761637094597:web:22728f82c39f0253b99cac"
   };
 
-  const app = initializeApp();
+// Initialize app
+initializeApp(firebaseConfig);
 
-  const db = getFirestore();
+// Initialize services
+const db = getFirestore();
+const auth = getAuth();
+
+// Collection Reference
+const collectionRef = collection(db, 'chats');
+
+// queries
+const q = query(collectionRef, orderBy('created_at', 'asc'));
+
+// Real Time collection of data
+onSnapshot(q, (snapshot) => {
+    let chats = [];
+    snapshot.docs.forEach(doc => {
+        chats.push({...doc.data(), id: doc.id});
+    })
+    console.log(chats);
+})
